@@ -1,9 +1,11 @@
 var express = require("express"),
     app = express(),
-    Imagemin = require('imagemin');
+    Imagemin = require('imagemin'),
+    serveIndex = require('serve-index');
 
 
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
+app.use('/public', serveIndex(__dirname + '/public'));
 
 new Imagemin()
     .src('images/test.jpg')
