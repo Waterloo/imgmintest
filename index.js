@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/public', serveIndex(__dirname + '/public'));
 
 new Imagemin()
-    .src('images/test.jpg')
+    .src('test.jpg')
     .dest('./public/')
     .use(Imagemin.jpegtran({progressive: true}))
     .run(function (err, files) {
